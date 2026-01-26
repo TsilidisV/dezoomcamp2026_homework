@@ -11,7 +11,7 @@ What's the version of `pip` in the image?
 - 24.2.1
 - 23.3.1
 
-<details open>
+<details>
   <summary>Click to show solution</summary>
 
   ```bash
@@ -67,7 +67,7 @@ volumes:
 - postgres:5432
 - db:5432 ✅
 
-<details open>
+<details>
   <summary>Click to show solution</summary>
 
   We will connect inside of the container so service name is `db` and port is `5432`.
@@ -83,7 +83,7 @@ For the trips in November 2025 (lpep_pickup_datetime between '2025-11-01' and '2
 - 8,254
 - 8,421
 
-<details open>
+<details>
   <summary>Click to show solution</summary>
 
   ```SQL
@@ -106,7 +106,7 @@ Use the pick up time for your calculations.
 - 2025-11-23
 - 2025-11-25
 
-<details open>
+<details>
   <summary>Click to show solution</summary>
 
   ```SQL
@@ -128,7 +128,7 @@ Which was the pickup zone with the largest `total_amount` (sum of all trips) on 
 - Morningside Heights
 - Forest Hills
 
-<details open>
+<details>
   <summary>Click to show solution</summary>
 
   ```SQL
@@ -154,7 +154,7 @@ Note: it's `tip` , not `trip`. We need the name of the zone, not the ID.
 - East Harlem North
 - LaGuardia Airport
 
-<details open>
+<details>
   <summary>Click to show solution</summary>
 
   ```SQL

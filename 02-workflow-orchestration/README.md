@@ -10,7 +10,7 @@
 - 134.5 MiB
 - 364.7 MiB
 - 692.6 MiB
-<details open>
+<details>
   <summary>Click to show solution</summary>
 
   ![Alt text](./images/hw2_1.png)
@@ -22,7 +22,7 @@
 - `green_tripdata_04_2020.csv`
 - `green_tripdata_2020.csv`
 
-<details open>
+<details>
   <summary>Click to show solution</summary>
 
   ![Alt text](./images/hw2_2.png)
@@ -35,7 +35,7 @@
 - 18,324,219
 - 29,430,127
 
-<details open>
+<details>
   <summary>Click to show solution</summary>
 
   ![Alt text](./images/hw2_3.png)
@@ -48,7 +48,7 @@
 - 1,734,051 ✅
 - 1,342,034
 
-<details open>
+<details>
   <summary>Click to show solution</summary>
 
   ![Alt text](./images/hw2_4.png)
@@ -61,7 +61,7 @@
 - 1,925,152 ✅
 - 2,561,031
 
-<details open>
+<details>
   <summary>Click to show solution</summary>
 
   ![Alt text](./images/hw2_5.png)
@@ -74,7 +74,7 @@
 - Add a `timezone` property set to `UTC-5` in the `Schedule` trigger configuration
 - Add a `location` property set to `New_York` in the `Schedule` trigger configuration  
 
-<details open>
+<details>
   <summary>Click to show solution</summary>
 
   ![Alt text](./images/hw2_6_a.png)
