@@ -31,7 +31,7 @@
 
 3) How many rows are there for the `Yellow` Taxi data for all CSV files in the year 2020?
 - 13,537.299
-✅ 24,648,499
+- 24,648,499 ✅ 
 - 18,324,219
 - 29,430,127
 
