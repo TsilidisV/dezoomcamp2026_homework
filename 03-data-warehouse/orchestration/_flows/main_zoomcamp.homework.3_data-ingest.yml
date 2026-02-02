@@ -1,0 +1,40 @@
+id: data-ingest
+namespace: zoomcamp.homework.3
+
+inputs: 
+  - id: taxi
+    type: SELECT
+    displayName: Select taxi type
+    values: ["yellow", "green"]
+    defaults: "green"
+
+  - id: year 
+    type: SELECT
+    values: ["2021", "2023", "2024", "2025"]
+    defaults: "2021"
+
+  - id: month
+    type: SELECT
+    values: ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+    defaults: "01"
+
+variables:
+  file: "{{inputs.taxi}}_tripdata_{{inputs.year}}-{{inputs.month}}"
+  gcs_file: "gs://{{ envs.gcs_bucket }}/{{vars.file}}"
+
+
+tasks:
+  - id: download_data
+    type: io.kestra.plugin.core.http.Download
+    uri: "https://d37ci6vzurychx.cloudfront.net/trip-data/{{ render(vars.file) }}.parquet"
+
+  - id: upload_to_gcs
+    type: io.kestra.plugin.gcp.gcs.Upload
+    from: "{{ outputs.download_data.uri }}"
+    to: "{{render(vars.gcs_file)}}"
+
+pluginDefaults:
+  - type: io.kestra.plugin.gcp
+    values:
+      serviceAccount: "{{secret('GCP_CREDS')}}"
+      bucket: "{{ envs.gcs_bucket }}"

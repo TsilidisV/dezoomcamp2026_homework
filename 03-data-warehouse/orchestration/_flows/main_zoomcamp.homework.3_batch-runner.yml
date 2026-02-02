@@ -1,0 +1,17 @@
+id: batch-runner
+namespace: zoomcamp.homework.3
+
+tasks:
+  - id: run_for_each_month
+    type: io.kestra.plugin.core.flow.ForEach
+    values: ["01", "02", "03", "04", "05", "06"]
+    tasks:
+      - id: call_ingest_flow
+        type: io.kestra.plugin.core.flow.Subflow
+        namespace: zoomcamp.homework.3
+        flowId: data-ingest
+        inputs:
+          taxi: "yellow"       
+          year: "2024"        # The year you want to run
+          month: "{{ taskrun.value }}" # Passes the current month from the list
+        wait: true            # Wait for the subflow to finish before moving to the next
