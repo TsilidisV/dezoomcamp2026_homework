@@ -259,3 +259,5 @@ terraform.rc
 
 # Ignore all folders named "keys" in all directories
 **/keys/
+
+**.duckdb
