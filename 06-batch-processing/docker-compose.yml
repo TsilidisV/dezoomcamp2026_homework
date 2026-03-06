@@ -1,0 +1,11 @@
+services:
+  pyspark-notebook:
+    build: .
+    container_name: my-pyspark-jupyter
+    ports:
+      - "8888:8888"  # Jupyter Lab Port
+      - "4040:4040"  # Spark Master Web UI Port
+    volumes:
+      # Maps the local 'work' folder to the container's notebook directory
+      # This ensures your work is saved even if the container stops
+      - ./work:/workspace

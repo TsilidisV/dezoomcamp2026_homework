@@ -261,3 +261,9 @@ terraform.rc
 **/keys/
 
 **.duckdb
+
+**.parquet
+**.parquet.crc
+**._SUCCESS.crc
+**._SUCCESS
+**.csv
