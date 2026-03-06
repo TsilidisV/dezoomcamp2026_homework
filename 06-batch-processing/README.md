@@ -78,7 +78,7 @@ What's the output?
 <details>
   <summary>Click to show solution</summary>
 
-The output is "Spark Version: 3.5.0" which can be seen by running the following code:
+The output is "4.1.0" which can be seen by running the following code:
 
 ```python
 from pyspark.sql import SparkSession
