@@ -1,0 +1,39 @@
+import dataclasses
+import json
+import sys
+import time
+from pathlib import Path
+
+from models import Ride, ride_from_row, ride_serializer
+
+import pandas as pd
+from kafka import KafkaProducer
+
+# Download NYC yellow taxi trip data (first 1000 rows)
+url = "https://d37ci6vzurychx.cloudfront.net/trip-data/green_tripdata_2025-10.parquet"
+columns = ['lpep_pickup_datetime', 'lpep_dropoff_datetime', 'PULocationID', 'DOLocationID', 'passenger_count', 'trip_distance', 'tip_amount', 'total_amount'] 
+
+
+df = pd.read_parquet(url, columns=columns)
+
+df = df.fillna(0)
+
+server = 'localhost:9092'
+
+producer = KafkaProducer(
+    bootstrap_servers=[server],
+    value_serializer=ride_serializer
+)
+t0 = time.time()
+
+topic_name = 'green-trips'
+
+for _, row in df.iterrows():
+    ride = ride_from_row(row)
+    producer.send(topic_name, value=ride)
+    #print(f"Sent: {ride}")
+
+producer.flush()
+
+t1 = time.time()
+print(f'took {(t1 - t0):.2f} seconds')
